@@ -1,6 +1,6 @@
 var URL_STRING = "http://rndtest.shortcuts.com.au";
-var LOCAL_URL = 'localjson.json';
-var TEST_URL = 'testjson.json';
+//var LOCAL_URL = 'localjson.json';
+//var TEST_URL = 'testjson.json';
 
 var REGEX_REPLACE = /\W+\d+/g;
 var REGEX_MATCH = /\w+/gi;
@@ -29,11 +29,6 @@ shortcuts.controller("shortcutsController", function($scope, $http){
     wordFrequencyArray = wordFrequencyArray.sort(function(a, b){
       return b.wordCount - a.wordCount;
     });
-
-    // for(var i=0; i<5; i++){
-    //   displayArray.push(wordFrequencyArray[i]);
-    // }
-    // $scope.results = wordFrequencyArray;
 
     return wordFrequencyArray;
   }
@@ -64,7 +59,7 @@ shortcuts.controller("shortcutsController", function($scope, $http){
     });
   }
 
-  $http.get(LOCAL_URL).success(function(response){
+  $http.get(URL_STRING).success(function(response){
     console.log("successful get");
     $scope.words = findCommonWord(response.companies);
   }).error(function(err, status){
