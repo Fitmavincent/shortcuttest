@@ -50,6 +50,7 @@ There are a few of ways I can choose to deploy:
  
  * After I successfully return an array with bunch of objects containing words, occurrence of words and associated companies, I started building up controller and directivs in AngularJS to render my data to the front-end page. 
  
+One flaw in this development process is that I did not construct a common words dictionary to opt out any common words. Instead, I just simply using if statement, which needs to be done in the next stage.
  
 ####Developing & Running Environment
 1. Atom Editor
@@ -57,7 +58,7 @@ There are a few of ways I can choose to deploy:
 3. Browser - Tested successful on Chrome, Firefox and Safari. 
 
 
-####Difficulties
+####Difficulties 
 I had some hard time with the process of my solution. None of a project that I built was easy to achieve. Data binding is one of the difficulties that I came across during the development of this SPA. With wrong words and quote, I could not get any data rendering into the front-end and no RED in the console or any other places. Not that I like seeing a red line when I debugging, who doesn't like green. But without any warnings or error message, I need to apply breakpoints and kept reviewing across pages to make sure the data are bind. 
  
 Another difficulty is that I did not deploy my solution by using node, npm and bower. Without npm and bower, it is not easy to use some other fancy libraries.
@@ -65,7 +66,7 @@ Another difficulty is that I did not deploy my solution by using node, npm and b
 
 ####Yet to Improve
 1. Knowledge of web server deployment
-2. Cleaner code. Less code to achieve tasks.
+2. Cleaner code. Less code to achieve tasks. Optimization.
 3. Better organized structure and seperate logic. 
 4. More familiar with Javascript and boldness to use new libraries and technology. 
 5. Improve ability and efficiency to grasp core ideas of documentation or manual.
