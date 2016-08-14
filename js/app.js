@@ -8,6 +8,7 @@ var REGEX_MATCH = /\w+/gi;
 function wordFrequency(word, wordCount){
   this.word = word;
   this.wordCount = wordCount;
+  this.company = [];
 }
 
 var shortcuts = angular.module("shortcuts", []);
@@ -16,14 +17,13 @@ shortcuts.controller("shortcutsController", function($scope, $http){
   $scope.results = [];
 
   function findCommonWord(displayName){
-    var companiesNum = Object.keys(displayName).length;
-    var count = 0;
+    // var companiesNum = Object.keys(displayName).length;
     var wordFrequencyArray = [];
     var displayArray = [];
 
     var results = displayName.map(function(item){
       var wordArray = item.display_name.trim().replace(REGEX_REPLACE, ' ').match(REGEX_MATCH);
-      countCommonWord(wordFrequencyArray, wordArray);
+      countCommonWord(wordFrequencyArray, wordArray, item.display_name);
     });
 
     wordFrequencyArray = wordFrequencyArray.sort(function(a, b){
@@ -38,7 +38,7 @@ shortcuts.controller("shortcutsController", function($scope, $http){
     return $scope.results;
   }
 
-  function countCommonWord(wordFrequencyArray, wordArray){
+  function countCommonWord(wordFrequencyArray, wordArray, fullString){
     var wordCount = 0;
 
     for(var i=0; i<wordArray.length; i++){
@@ -47,9 +47,12 @@ shortcuts.controller("shortcutsController", function($scope, $http){
         var existCommonWord = checkExist(wordFrequencyArray, word);
         if(existCommonWord !== undefined){
           existCommonWord.wordCount += 1;
+          existCommonWord.company.push(fullString);
         }
         else{
-          wordFrequencyArray.push(new wordFrequency(word, 1));
+          var firstOccurWord = new wordFrequency(word, 1);
+          firstOccurWord.company.push(fullString);
+          wordFrequencyArray.push(firstOccurWord);
         }
       }
     }
@@ -61,12 +64,29 @@ shortcuts.controller("shortcutsController", function($scope, $http){
     });
   }
 
+  // function matchCompanies(wordResultArray, companiesArray){
+  //   var matchCompaniesArray = [];
+  //
+  //   companiesArray.map(function(item){
+  //     var wordArray = item.display_name.trim().replace(REGEX_REPLACE, ' ').match(REGEX_MATCH);
+  //     for(var i=0; i<wordResultArray; i++){
+  //       var resultWord = wordResultArray[i];
+  //       var matchCompany = checkExist(wordArray, resultWord[i]);
+  //       if(matchCompany !== undefined){
+  //
+  //       }
+  //     }
+  //   });
+  //
+  // }
+
+
+
   $http.get(URL_STRING).success(function(response){
     console.log("successful get");
-    //console.log(Object.keys(response.companies).length);
-    // $scope.companies = response.companies;
-    //console.log(findCommonWord(response.companies));
     $scope.words = findCommonWord(response.companies);
+    $scope.companies = response.companies;
+    console.log($scope.results);
 
   }).error(function(err, status){
     console.log("fail to load" + status);

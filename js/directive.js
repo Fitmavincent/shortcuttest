@@ -1,5 +1,5 @@
-angular.module('shortcuts', [])
-.directive('shTableView', function(){
+angular.module('shortcuts')
+.directive('shTableView', [function(){
   return{
     restrict: 'E',
     scope: {
@@ -15,4 +15,4 @@ angular.module('shortcuts', [])
       };
     }
   };
-});
+}]);
