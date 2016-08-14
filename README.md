@@ -12,13 +12,10 @@ To create a single-page-application using web technologies to perform and displa
   1. Have a length greater than two characters
   2. Occur at least once within the set of data
   3. Are not considered common words within the English language such as “and”, “the”, “is” etc.
-  
+
 * The page must display the five identified words, together with the respective count of companies that include that word in their name.
 * The words should be displayed in descending order by count with those of equal count ordered alphabetically.
 * The page should exhibit dynamic elements.  For example, enabling drilldown on identified words to show a list of up to five companies which include that word in their names.
 
 #####Data source:
-[http://rndtest.shortcuts.com.au/]
-
-
-
+http://rndtest.shortcuts.com.au/
