@@ -37,8 +37,8 @@ shortcuts.controller("shortcutsController", function($scope, $http){
     var wordCount = 0;
 
     for(var i=0; i<wordArray.length; i++){
-      var word = wordArray[i];
-      if(word.length > 2 && word != "The" && word != "And" && word != "and"){
+      var word = wordArray[i].toLowerCase();
+      if(word.length > 2 && word != "the" && word != "and" && word != "for" && word != "above" && word != "within"){
         var existCommonWord = checkExist(wordFrequencyArray, word);
         if(existCommonWord !== undefined){
           existCommonWord.wordCount += 1;
@@ -60,9 +60,9 @@ shortcuts.controller("shortcutsController", function($scope, $http){
   }
 
   $http.get(URL_STRING).success(function(response){
-    console.log("successful get");
+    // console.log("successful get");
     $scope.words = findCommonWord(response.companies);
   }).error(function(err, status){
-    console.log("fail to load" + status);
+    // console.log("fail to load" + status);
   });
 });

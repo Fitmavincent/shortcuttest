@@ -10,7 +10,6 @@ angular.module('shortcuts')
       controller: function($scope){
         $scope.getWordInfo = function(word){
           var companyArray = [];
-
           for(var i=0; i<Object.keys(word.company).length; i++){
             companyArray.push(word.company[i]);
           }
