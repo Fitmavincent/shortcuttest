@@ -13,7 +13,7 @@
   <!-- Latest compiled and minified CSS -->
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css?v=1.0">
+  <link rel="stylesheet" href="css/style.css">
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
@@ -28,12 +28,35 @@
     <div class="col-md-12"><strong><h1>Shortcut Software</h1></strong></div>
   </div>
 
-    <div ng-controller="shortcutsController">
+    <div class="container-fluid" ng-cloak ng-controller="shortcutsController">
       <div class="row">
-        <div class="col-xs-7">
-          <sh-table-view
-            sh-display-words="displayWords",
-            sh-selected-word="selectedWord"/>
+        <div class="col-xs-12">
+          <div class="shortcut-test-container">
+
+            <div class="row">
+              <div class="col-xs-7">
+                <sh-table-view
+                  sh-display-words="words",
+                  sh-selected-word="companies"/>
+              </div>
+
+              <div class="col-xs-5">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Company Name</h3>
+                  </div>
+                  <table class="table table-hover table-responsive">
+                    <tr ng-repeat="company in companies | limitTo: 5">
+                      <td>{{ company }}</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
           <!-- <table class="table table-hover table-responsive">
             <tr>
               <th>Common Word</th>
@@ -46,17 +69,6 @@
           </table>
         </div> -->
 
-        <div class="col-xs-5">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Company Name</h3>
-            </div>
-            <div class="panel-body">
-              {{ selectedWord.company }}
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
   <script src="js/app.js"></script>

@@ -3,15 +3,18 @@ angular.module('shortcuts')
   return{
     restrict: 'E',
     scope: {
-      displayWords:"=shDisplayWords",
-      selectedWord:"=shSelectedWord"
+      words:"=shDisplayWords",
+      companies:"=shSelectedWord"
     },
     templateUrl: 'partial.html',
       controller: function($scope){
         $scope.getWordInfo = function(word){
-          if(word.isSelected){
-            $scope.selectedWord = $scope.selectedWord.copy(word);
+          var companyArray = [];
+
+          for(var i=0; i<Object.keys(word.company).length; i++){
+            companyArray.push(word.company[i]);
           }
+          $scope.companies = companyArray;
       };
     }
   };

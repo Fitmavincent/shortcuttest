@@ -3,8 +3,8 @@
       <th>Word</th>
       <th>Count</th>
     </tr>
-    <tr ng-class="{info: word.isSelected}"
-        ng-repeat="word in words | limitTo:5"
+    <tr ng-class="{ selected: word === selectedWord }"
+        ng-repeat="word in words | limitTo: 5"
         ng-click="getWordInfo(word)">
       <td>{{ word.word }}</td>
       <td>{{ word.wordCount }}</td>
