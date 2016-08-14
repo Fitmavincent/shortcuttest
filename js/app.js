@@ -17,7 +17,6 @@ shortcuts.controller("shortcutsController", function($scope, $http){
   $scope.results = [];
 
   function findCommonWord(displayName){
-    // var companiesNum = Object.keys(displayName).length;
     var wordFrequencyArray = [];
     var displayArray = [];
 
@@ -30,12 +29,12 @@ shortcuts.controller("shortcutsController", function($scope, $http){
       return b.wordCount - a.wordCount;
     });
 
-    for(var i=0; i<5; i++){
-      displayArray.push(wordFrequencyArray[i]);
-    }
+    // for(var i=0; i<5; i++){
+    //   displayArray.push(wordFrequencyArray[i]);
+    // }
+    // $scope.results = wordFrequencyArray;
 
-    $scope.results = displayArray;
-    return $scope.results;
+    return wordFrequencyArray;
   }
 
   function countCommonWord(wordFrequencyArray, wordArray, fullString){
@@ -67,10 +66,27 @@ shortcuts.controller("shortcutsController", function($scope, $http){
   $http.get(URL_STRING).success(function(response){
     console.log("successful get");
     $scope.words = findCommonWord(response.companies);
-    $scope.companies = response.companies;
-    console.log($scope.results);
-
+    console.log($scope.words);
+    
   }).error(function(err, status){
     console.log("fail to load" + status);
   });
 });
+
+// shortcuts.directive('shTableView', [function(){
+//   return{
+//     restrict: 'E',
+//     scope: {
+//       displayWord:"=shDisplayWord",
+//       selectedWord:"=shSelectedWord"
+//     },
+//     templateUrl: 'partial.html',
+//       controller: function($scope){
+//         $scope.getWordInfo = function(word){
+//           if(word.isSelected){
+//             $scope.selectedWord = $scope.selectedWord.copy(word);
+//           }
+//       };
+//     }
+//   };
+// }]);
