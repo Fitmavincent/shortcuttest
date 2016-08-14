@@ -64,24 +64,6 @@ shortcuts.controller("shortcutsController", function($scope, $http){
     });
   }
 
-  // function matchCompanies(wordResultArray, companiesArray){
-  //   var matchCompaniesArray = [];
-  //
-  //   companiesArray.map(function(item){
-  //     var wordArray = item.display_name.trim().replace(REGEX_REPLACE, ' ').match(REGEX_MATCH);
-  //     for(var i=0; i<wordResultArray; i++){
-  //       var resultWord = wordResultArray[i];
-  //       var matchCompany = checkExist(wordArray, resultWord[i]);
-  //       if(matchCompany !== undefined){
-  //
-  //       }
-  //     }
-  //   });
-  //
-  // }
-
-
-
   $http.get(URL_STRING).success(function(response){
     console.log("successful get");
     $scope.words = findCommonWord(response.companies);

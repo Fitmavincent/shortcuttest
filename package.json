@@ -1,0 +1,25 @@
+{
+  "name": "shortcuttest",
+  "version": "1.0.0",
+  "description": "a interview test for Shortcut Software, Brisbane, Australia",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fitmavincent/shortcuttest.git"
+  },
+  "keywords": [
+    "common",
+    "word",
+    "Single-Page-Application"
+  ],
+  "author": "Vincent Liang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fitmavincent/shortcuttest/issues"
+  },
+  "homepage": "https://github.com/Fitmavincent/shortcuttest#readme"
+}
