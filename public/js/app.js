@@ -1,6 +1,6 @@
-var URL_STRING = "http://rndtest.shortcuts.com.au";
-//var LOCAL_URL = 'localjson.json';
-//var TEST_URL = 'testjson.json';
+//var URL_STRING = "http://rndtest.shortcuts.com.au";
+var LOCAL_URL = 'data/localjson.json';
+//var TEST_URL = 'data/testjson.json';
 
 var REGEX_REPLACE = /\W+\d+/g;
 var REGEX_MATCH = /\w+/gi;
@@ -59,7 +59,7 @@ shortcuts.controller("shortcutsController", function($scope, $http){
     });
   }
 
-  $http.get(URL_STRING).success(function(response){
+  $http.get(LOCAL_URL).success(function(response){
     // console.log("successful get");
     $scope.words = findCommonWord(response.companies);
   }).error(function(err, status){
