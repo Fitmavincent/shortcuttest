@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The Shortcuts Test</title>
+  <meta name="description" content="The Shortcuts Test">
+  <meta name="author" content="Vincent">
+
+  <script src="bower_components/angular/angular.js"></script>
+  <!-- <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="public/css/style.css">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body ng-app="shortcuts">
+  <div class="row">
+    <div class="col-md-12"><strong><h1>Shortcut Software</h1></strong></div>
+  </div>
+
+    <div class="container-fluid" ng-cloak ng-controller="shortcutsController">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="shortcut-test-container">
+
+            <div class="row">
+              <div class="col-xs-7">
+                <sh-table-view
+                  sh-display-words="words",
+                  sh-selected-word="companies"/>
+              </div>
+
+              <div class="col-xs-5">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Company Name</h3>
+                  </div>
+                  <table class="table table-hover table-responsive">
+                    <tr ng-repeat="company in companies | limitTo: 10">
+                      <td>{{ company }}</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  <script src="public/js/app.js"></script>
+  <script src="public/js/directive.js"></script>
+</body>
+</html>
