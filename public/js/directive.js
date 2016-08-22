@@ -6,7 +6,7 @@ angular.module('shortcuts')
       words:"=shDisplayWords",
       companies:"=shSelectedWord"
     },
-    templateUrl: 'public/js/partials/partial.html',
+    templateUrl: '/js/partials/partial.html',
       controller: function($scope){
         $scope.getWordInfo = function(word){
           var companyArray = [];
