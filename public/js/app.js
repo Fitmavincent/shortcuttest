@@ -1,6 +1,5 @@
 //var URL_STRING = "http://rndtest.shortcuts.com.au";
 var LOCAL_URL = '/localjson.json';
-//var TEST_URL = 'data/testjson.json';
 
 var REGEX_REPLACE = /\W+\d+/g;
 var REGEX_MATCH = /\w+/gi;
